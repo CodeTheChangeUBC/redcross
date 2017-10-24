@@ -13,6 +13,7 @@ npm-debug.log
 /build
 /out
 /src/main/resources/public
+yarn-error.log
 
 # extra
 *.ipr

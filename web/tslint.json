@@ -1,0 +1,20 @@
+{
+  "defaultSeverity": "warning",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+    "no-shadowed-variable": true,
+    "object-literal-sort-keys": false,
+    "trailing-comma": [false, {"multiline": "always", "singleline": "never"}],
+    "ordered-imports": false,
+    "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"],
+    "no-console": false,
+    "arrow-parens": false,
+    "max-classes-per-file": false,
+    "object-literal-shorthand": false,
+    "interface-name": false
+  },
+  "rulesDirectory": []
+}
