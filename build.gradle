@@ -1,0 +1,128 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.1'
+    }
+}
+
+plugins {
+    id 'nu.studer.jooq' version '2.0.7'
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'com.google.protobuf'
+
+jar {
+    baseName = 'redcross'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+protobuf {
+    protoc {
+        // The artifact spec for the Protobuf Compiler
+        artifact = 'com.google.protobuf:protoc:3.0.0'
+    }
+    sourceSets {
+        main {
+            proto {
+                srcDir "$projectDir/src/main/protobuf"
+            }
+        }
+    }
+
+    generatedFilesBaseDir = "$projectDir/src"
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    // tag::jetty[]
+    compile("org.springframework.boot:spring-boot-starter-web") {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+    compile("org.springframework.boot:spring-boot-starter-jetty")
+    // end::jetty[]
+    // tag::actuator[]
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    // end::actuator[]
+    compile("org.springframework.boot:spring-boot-starter-security")
+    compile("org.springframework:spring-jdbc")
+    compile("mysql:mysql-connector-java")
+    compile("com.h2database:h2:1.4.196")
+    compile("io.jsonwebtoken:jjwt:0.7.0")
+    compile("org.mindrot:jbcrypt:0.3m")
+    compile('com.googlecode.protobuf-java-format:protobuf-java-format:1.4')
+    compile 'com.google.protobuf:protobuf-java:3.0.0'
+    compile 'io.grpc:grpc-stub:1.0.0-pre2'
+    compile 'io.grpc:grpc-protobuf:1.0.0-pre2'
+    compile group: 'org.apache.commons', name: 'commons-io', version: '1.3.2'
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    //JUnit 5 - Start
+    testCompile("org.junit.platform:junit-platform-commons:1.0.1")
+    testCompile("org.junit.platform:junit-platform-console:1.0.1")
+    testCompile("org.junit.platform:junit-platform-console-standalone:1.0.1")
+    testCompile("org.junit.platform:junit-platform-engine:1.0.1")
+    testCompile("org.junit.platform:junit-platform-gradle-plugin:1.0.1")
+    testCompile("org.junit.platform:junit-platform-launcher:1.0.1")
+    testCompile("org.junit.platform:junit-platform-runner:1.0.1")
+    testCompile("org.junit.platform:junit-platform-suite-api:1.0.1")
+    testCompile("org.junit.platform:junit-platform-surefire-provider:1.0.1")
+    testCompile("org.junit.jupiter:junit-jupiter-api:5.0.1")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.1")
+    testCompile("org.junit.jupiter:junit-jupiter-params:5.0.1")
+    //Ignored JUnit Vintage
+    //JUnit 5 - End
+    compile("org.jooq:jooq")
+    jooqRuntime group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
+}
+
+jooq {
+    version = '3.9.5'
+    //edition = 'OSS'
+    redcross(sourceSets.main) {
+        jdbc {
+            driver = 'com.mysql.jdbc.Driver'
+            url = 'jdbc:mysql://localhost:3306/pokecabin'
+            user = 'poke_user'
+            password = 'poke_user'
+        }
+        generator {
+            name = 'org.jooq.util.DefaultGenerator'
+            strategy {
+                name = 'org.jooq.util.DefaultGeneratorStrategy'
+                // ...
+            }
+            database {
+                name='org.jooq.util.mysql.MySQLDatabase'
+                inputSchema = 'pokecabin'
+                includes = ".*"
+                excludes = ''
+            }
+            generate {
+                relations = true
+                deprecated = false
+                records = true
+                immutablePojos = true
+                fluentSetters = true
+            }
+            target {
+                packageName = 'com.pokecabin.generated.schema'
+                directory = 'src/main/java'
+            }
+        }
+
+    }
+}
