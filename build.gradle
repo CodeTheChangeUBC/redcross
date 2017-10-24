@@ -95,9 +95,9 @@ jooq {
     redcross(sourceSets.main) {
         jdbc {
             driver = 'com.mysql.jdbc.Driver'
-            url = 'jdbc:mysql://localhost:3306/pokecabin'
-            user = 'poke_user'
-            password = 'poke_user'
+            url = 'jdbc:mysql://localhost:3306/redcross'
+            user = 'recross_user'
+            password = 'recross_user'
         }
         generator {
             name = 'org.jooq.util.DefaultGenerator'
@@ -107,7 +107,7 @@ jooq {
             }
             database {
                 name='org.jooq.util.mysql.MySQLDatabase'
-                inputSchema = 'pokecabin'
+                inputSchema = 'redcross'
                 includes = ".*"
                 excludes = ''
             }
@@ -119,7 +119,7 @@ jooq {
                 fluentSetters = true
             }
             target {
-                packageName = 'com.pokecabin.generated.schema'
+                packageName = 'com.redcross.generated.schema'
                 directory = 'src/main/java'
             }
         }
