@@ -11,6 +11,8 @@ import {BrowserModule} from "@angular/platform-browser";
 import {HomeComponent} from "./components/HomeComponent";
 import {SpinnerService} from "../commonModule/services/SpinnerService";
 import {SpinnerAnchor, SpinnerComponent} from "./components/SpinnerComponent";
+import {RedcrossInfoService} from "../commonModule/services/RedcrossInfoService";
+import {RedcrossHttp} from "../commonModule/services/RedcrossHttp";
 
 @NgModule({
     imports: [
@@ -31,7 +33,9 @@ import {SpinnerAnchor, SpinnerComponent} from "./components/SpinnerComponent";
         {provide: LocationStrategy, useClass: HashLocationStrategy},
         AuthenticationService,
         AuthGuard,
-        SpinnerService
+        SpinnerService,
+        RedcrossInfoService,
+        RedcrossHttp
     ],
     entryComponents: [
         SpinnerComponent

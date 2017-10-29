@@ -1,5 +1,7 @@
 import {Component} from "@angular/core";
 import {SpinnerService} from "../../commonModule/services/SpinnerService";
+import {RedcrossInfoService} from "../../commonModule/services/RedcrossInfoService";
+import {RedcrossHttp} from "../../commonModule/services/RedcrossHttp";
 
 @Component({
     selector: "home",
@@ -8,7 +10,9 @@ import {SpinnerService} from "../../commonModule/services/SpinnerService";
 })
 export class HomeComponent {
     constructor(
-        private _spinnerService: SpinnerService
+        private _spinnerService: SpinnerService,
+        private _infoBarService: RedcrossInfoService,
+        private _http: RedcrossHttp
     ) {}
 
     public showSpinner(): void {
@@ -17,5 +21,13 @@ export class HomeComponent {
             () => this._spinnerService.hideSpinner(),
             2000
         );
+    }
+
+    public showInfoBar(): void {
+        this._infoBarService.notifyInfo("Info Bar");
+    }
+
+    public demoFailHttpReq(): void {
+        this._http.get("/abc").subscribe();
     }
 }
