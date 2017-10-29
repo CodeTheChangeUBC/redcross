@@ -1,30 +1,40 @@
 import {NgModule} from "@angular/core";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {HttpModule} from "@angular/http";
-import {BrowserModule} from "@angular/platform-browser";
 import {RootComponent} from "./components/RootComponent";
-import {MatCardModule} from '@angular/material';
-
-const materialModules: any[] = [
-    MatCardModule
-];
-
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
+import {RootRoutingModule} from "./RootRoutingModule";
+import {RedcrossCommonModule} from "../commonModule/RedcrossCommonModule";
+import {AuthenticationService} from "../commonModule/services/AuthenticationService";
+import {AuthGuard} from "../commonModule/services/AuthGuard";
+import {AuthenticationComponent} from "./components/AuthenticationComponent";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {BrowserModule} from "@angular/platform-browser";
+import {HomeComponent} from "./components/HomeComponent";
+import {SpinnerService} from "../commonModule/services/SpinnerService";
+import {SpinnerAnchor, SpinnerComponent} from "./components/SpinnerComponent";
 
 @NgModule({
     imports: [
+        RootRoutingModule,
         BrowserModule,
         BrowserAnimationsModule,
-        HttpModule,
-        FormsModule,
-        ReactiveFormsModule,
-        ...materialModules
+        RedcrossCommonModule
     ],
     declarations: [
-        RootComponent
+        RootComponent,
+        HomeComponent,
+        AuthenticationComponent,
+        SpinnerAnchor,
+        SpinnerComponent
     ],
     bootstrap: [RootComponent],
-    providers: [],
-    entryComponents: []
+    providers: [
+        {provide: LocationStrategy, useClass: HashLocationStrategy},
+        AuthenticationService,
+        AuthGuard,
+        SpinnerService
+    ],
+    entryComponents: [
+        SpinnerComponent
+    ]
 })
 export class RootModule {}
