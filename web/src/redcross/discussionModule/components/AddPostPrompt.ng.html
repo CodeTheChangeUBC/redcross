@@ -1,0 +1,15 @@
+<div mat-dialog-content>
+    <h1 mat-dialog-title>New Post</h1>
+    <p>Title</p>
+    <mat-form-field>
+        <input size="100" matInput tabindex="1" [(ngModel)]="data.title">
+    </mat-form-field>
+    <p>Body</p>
+    <mat-form-field>
+        <textarea rows="5" cols="100" matInput tabindex="2" [(ngModel)]="data.body"></textarea>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="data" tabindex="3">Submit</button>
+    <button mat-button (click)="onCancel()" tabindex="-1">Cancel</button>
+</div>

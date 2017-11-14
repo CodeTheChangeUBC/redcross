@@ -1,3 +1,10 @@
-<div>
-    Discussion
+<div class="container">
+    <div class="content">
+        <h2 class="title">Discussion Forum</h2>
+        <div class="post-container">
+            <discussion-post *ngFor="let p of posts" [post]="p">
+            </discussion-post>
+        </div>
+        <button mat-mini-fab class="add-button" (click)="addPost()">+</button>
+    </div>
 </div>
