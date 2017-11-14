@@ -4,7 +4,6 @@ import {RedcrossCommonModule} from "../commonModule/RedcrossCommonModule";
 import {BlogRoutingModule} from "./BlogRoutingModule";
 import {BlogPostComponent} from "./components/BlogPostComponent";
 
-
 @NgModule({
     imports: [
         BlogRoutingModule,

@@ -5,7 +5,7 @@ import {BlogPostComponent} from "./components/BlogPostComponent";
 
 export const blogRoutes: Routes = [
     {path: "", component: BlogComponent},
-    {path: "test", component:BlogPostComponent}
+    {path: "test", component: BlogPostComponent}
 ];
 
 @NgModule({
