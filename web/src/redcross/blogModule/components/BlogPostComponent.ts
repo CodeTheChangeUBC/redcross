@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
 
 @Component({
-    selector: "BlogPost",
+    selector: "blogPost",
     templateUrl: "./BlogPost.ng.html",
     styleUrls: ["./BlogPost.less"]
 })
