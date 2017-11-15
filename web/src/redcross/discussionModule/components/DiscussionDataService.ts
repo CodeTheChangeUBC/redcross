@@ -5,11 +5,11 @@ import {Author} from "./Author";
 
 @Injectable()
 export class DiscussionDataService {
-    public static getTestPosts(): Post[] {
+    public getTestPosts(): Post[] {
         return [testPost, testPost, testPost];
     }
 
-    public static getTestAuthor(): Author {
+    public getTestAuthor(): Author {
         return testAuthor;
     }
 }
