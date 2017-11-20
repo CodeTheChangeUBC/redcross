@@ -1,4 +1,5 @@
-import {Component} from "@angular/core";
+import {Component, Input} from "@angular/core";
+import {Post} from "./Post";
 
 @Component({
     selector: "blogPost",
@@ -6,5 +7,5 @@ import {Component} from "@angular/core";
     styleUrls: ["./BlogPost.less"]
 })
 export class BlogPostComponent {
-
+    @Input() public post: Post;
 }

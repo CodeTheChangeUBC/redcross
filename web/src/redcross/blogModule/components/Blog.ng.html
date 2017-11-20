@@ -1,6 +1,8 @@
 <div class="blogOutter">
     blog
-    <button class="addPostButton" mat-mini-fab (click)="showBlogForm()">
+    <blogPost *ngFor="let p of posts" [post]="p">
+    </blogPost>
+    <button class="addPostButton" mat-mini-fab (click)="addPost()">
         +
     </button>
 </div>
