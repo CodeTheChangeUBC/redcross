@@ -8,7 +8,6 @@ import {DiscussionDataService} from "./BlogDataService";
 import {Post} from "./Post";
 import {Author} from "./Author";
 
-
 @Component({
     selector: "blog",
     templateUrl: "./Blog.ng.html",
@@ -17,11 +16,10 @@ import {Author} from "./Author";
 })
 export class BlogComponent {
 
-    private posts: Post[]
+    private posts: Post[];
     private currentUser: Author;
 
-    constructor(public dds: DiscussionDataService,
-               public md: MatDialog) {}
+    constructor(public dds: DiscussionDataService, public md: MatDialog) {}
 
         // loads test data
         public getData(): void {
@@ -38,27 +36,10 @@ export class BlogComponent {
                 data: {title: "", body: ""}
         });
 
-            dialog.afterClosed().subscribe(result => {
-                    this.posts.push({title: result.title,
-                                         content: result.body,
-                                         author: this.currentUser});
-                });
+        dialog.afterClosed().subscribe(result => {
+            this.posts.push({title: result.title,
+            content: result.body,
+            author: this.currentUser});
+        });
     }
 }
-
-    @Component({
-            selector: "add-post-dialog",
-        templateUrl: "./BlogDialog.ng.html",
-        styleUrls: ["./BlogDialog.less"]
-})
-    export class AddPostDialog {
-    constructor(
-        public dialogRef: MatDialogRef<AddPostDialog>,
-        @Inject(MAT_DIALOG_DATA) public data: any) { }
-
-    public onCancel(): void {
-        this.dialogRef.close();
-    }
-}
-    
-
