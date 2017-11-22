@@ -1,24 +1,20 @@
-<div class="outterPost">
-    <div class="blogTitle">
+<div class="blog-post-outter">
+    <div class="blog-title">
         <mat-card>
             <mat-card-title>
                 {{post.title}}
             </mat-card-title>
-        </mat-card>
-    </div>
-    <div class="blogAuthor">
-        <mat-card>
-            <mat-card-subtitle>
+            <mat-card-subtitle class="blog-author">
                 {{post.author.name}}
             </mat-card-subtitle>
         </mat-card>
     </div>
-    <div class="blogBody">
+    <div class="blog-body">
         <mat-card>
             {{post.content}}
         </mat-card>
     </div>
-    <div class="blogPictures">
+    <div class="blog-pictures">
         <mat-card>
             Photos
         </mat-card>
