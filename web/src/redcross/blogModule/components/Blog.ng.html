@@ -2,8 +2,6 @@
     blog
     <blogPost *ngFor="let p of posts" [post]="p">
     </blogPost>
-    <button class="add-post-button" mat-mini-fab (click)="addPost()">
-        +
-    </button>
+    <button class="add-post-button" md-fab (click)="addPost()"><md-icon>add</md-icon></button>
 </div>
 

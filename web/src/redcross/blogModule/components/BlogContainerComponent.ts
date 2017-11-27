@@ -1,25 +1,24 @@
-import {Component, OnInit, Inject} from "@angular/core";
-import {BlogPostComponent} from "./BlogPostComponent";
+import {Component} from "@angular/core";
 import {BlogDialogComponent} from "./BlogDialogComponent";
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from "@angular/material";
+import {MatDialog} from "@angular/material";
 
-import {DiscussionDataService} from "./BlogDataService";
+import {BlogDataService} from "../services/BlogDataService";
 
-import {Post} from "./Post";
-import {Author} from "./Author";
+import {Post} from "../models/Post";
+import {Author} from "../models/Author";
 
 @Component({
     selector: "blog",
     templateUrl: "./Blog.ng.html",
     styleUrls: ["./Blog.less"],
-    providers: [DiscussionDataService, MatDialog]
+    providers: [BlogDataService, MatDialog]
 })
 export class BlogComponent {
 
     private posts: Post[];
     private currentUser: Author;
 
-    constructor(public dds: DiscussionDataService, public md: MatDialog) {}
+    constructor(private dds: BlogDataService, private md: MatDialog) {}
 
         // loads test data
         public getData(): void {
