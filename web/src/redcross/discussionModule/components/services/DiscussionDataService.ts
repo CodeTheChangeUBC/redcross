@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 
-import {Post} from "./Post";
-import {Author} from "./Author";
+import {Post} from "../models/Post";
+import {Author} from "../models/Author";
 
 @Injectable()
 export class DiscussionDataService {
