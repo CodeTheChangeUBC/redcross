@@ -1,16 +1,18 @@
-<div mat-dialog-content>
-    <h1 mat-dialog-title>New Blog Post</h1>
-    <p>Title</p>
-    <mat-form-field>
-        <input class="post-title" [(ngModel)]="data.title">
-    </mat-form-field>
-    <p>Body</p>
-    <mat-form-field>
-        <textarea class="post-body" [(ngModel)]="data.body"></textarea>
-    </mat-form-field>
-</div>
-<div mat-dialog-actions class="action-buttons">
-    <button mat-button (click)="onCancel()">Done</button>
-    <button mat-button [mat-dialog-close]="data">Cancel</button>
-    <button mat-button class="add-pictures-button">Add Pictures</button>
+<div class="blog-dialog-outer">
+    <div mat-dialog-content class="blog-text-inputs">
+        <h1 mat-dialog-title>New Blog Post</h1>
+        <p>Title</p>
+        <mat-form-field>
+            <input class="post-title" [(ngModel)]="data.title">
+        </mat-form-field>
+        <p>Body</p>
+        <mat-form-field>
+            <textarea class="post-body" [(ngModel)]="data.body"></textarea>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions class="action-buttons">
+        <button mat-button (click)="onCancel()">Done</button>
+        <button mat-button [mat-dialog-close]="data">Cancel</button>
+        <button mat-button class="add-pictures-button">Add Pictures</button>
+    </div>
 </div>

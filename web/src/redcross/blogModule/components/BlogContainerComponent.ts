@@ -36,9 +36,13 @@ export class BlogComponent {
         });
 
         dialog.afterClosed().subscribe(result => {
-            this.posts.push({title: result.title,
-            content: result.body,
-            author: this.currentUser});
+            if (result) {
+                this.posts.push({
+                    title: result.title,
+                    content: result.body,
+                    author: this.currentUser
+                });
+            }
         });
     }
 }
