@@ -1,11 +1,11 @@
 import {NgModule} from "@angular/core";
 import {RedcrossCommonModule} from "../commonModule/RedcrossCommonModule";
-import {DiscussionComponent} from "./components/DiscussionComponent";
+import {DiscussionComponent} from "./components/DiscussionContainerComponent";
 import {DiscussionPostComponent} from "./components/DiscussionPostComponent";
 import {DiscussionRoutingModule} from "./DiscussionRoutingModule";
 
 import {MatDialogModule} from "@angular/material";
-import {AddPostDialog} from "./components/DiscussionComponent";
+import {AddPostPrompt} from "./components/AddPostPromptComponent";
 
 @NgModule({
     imports: [
@@ -16,10 +16,10 @@ import {AddPostDialog} from "./components/DiscussionComponent";
     declarations: [
         DiscussionComponent,
         DiscussionPostComponent,
-        AddPostDialog
+        AddPostPrompt
     ],
     entryComponents: [
-        AddPostDialog
+        AddPostPrompt
     ],
     providers: [],
 })
