@@ -1,6 +1,6 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
-import {DiscussionComponent} from "./components/DiscussionComponent";
+import {DiscussionComponent} from "./components/DiscussionContainerComponent";
 
 export const discussionRoutes: Routes = [
     {path: "", component: DiscussionComponent}
