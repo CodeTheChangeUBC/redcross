@@ -5,6 +5,9 @@ import {Component} from "@angular/core";
     templateUrl: "ResourceSharing.ng.html",
     styleUrls: ["ResourceSharing.less"]
 })
+
 export class ResourceSharingComponent {
+
+    constructor() { }
 
 }

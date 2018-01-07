@@ -2,6 +2,9 @@ import {NgModule} from "@angular/core";
 import {RedcrossCommonModule} from "../commonModule/RedcrossCommonModule";
 import {ResourceSharingComponent} from "./components/ResourceSharingComponent";
 import {ResourceSharingRoutingModule} from "./ResourceSharingRoutingModule";
+import {ResourceSharingService} from "./services/ResourceSharingService";
+import {ResourceUploadDialogComponent} from "./components/ResourceUploadDialogComponent";
+import {ResourceComponent} from "./components/ResourceComponent";
 
 @NgModule({
     imports: [
@@ -9,8 +12,12 @@ import {ResourceSharingRoutingModule} from "./ResourceSharingRoutingModule";
         RedcrossCommonModule
     ],
     declarations: [
-        ResourceSharingComponent
+        ResourceSharingComponent,
+        ResourceUploadDialogComponent,
+        ResourceComponent
     ],
-    providers: [],
+    providers: [
+        ResourceSharingService
+    ],
 })
 export class ResourceSharingModule {}
