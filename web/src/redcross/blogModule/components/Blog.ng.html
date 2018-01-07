@@ -1,3 +1,6 @@
-<div>
-    blog
+<div class="blog-outter">
+    <blogPost *ngFor="let p of posts" [post]="p">
+    </blogPost>
+    <button mat-mini-fab class="add-post-button" (click)="addPost()">+</button>
 </div>
+
