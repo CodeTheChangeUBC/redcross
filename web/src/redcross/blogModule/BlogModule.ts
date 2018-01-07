@@ -1,15 +1,22 @@
 import {NgModule} from "@angular/core";
-import {BlogComponent} from "./components/BlogComponent";
+import {BlogComponent} from "./components/BlogContainerComponent";
 import {RedcrossCommonModule} from "../commonModule/RedcrossCommonModule";
 import {BlogRoutingModule} from "./BlogRoutingModule";
+import {BlogPostComponent} from "./components/BlogPostComponent";
+import {BlogDialogComponent} from "./components/BlogDialogComponent";
+
+import {MatDialogModule} from "@angular/material";
 
 @NgModule({
     imports: [
         BlogRoutingModule,
-        RedcrossCommonModule
+        RedcrossCommonModule,
+        MatDialogModule
     ],
     declarations: [
-        BlogComponent
+        BlogComponent,
+        BlogPostComponent,
+        BlogDialogComponent
     ],
     providers: [],
 })
