@@ -1,7 +1,6 @@
 <div class="resources-container">
     <h2>Resources</h2>
-    <resource-card></resource-card>
-
+    <resource-card *ngFor="let res of resources" class="res-card" [resource]="res"></resource-card>
 </div>
 
 <div class="upload-bar">

@@ -11,9 +11,7 @@ export class ResourceUploadDialog {
 
     constructor(public dialogRef: MatDialogRef<ResourceUploadDialog>) { }
 
-    uploadResource() { }
-
-    closeDialog() {
+    public closeDialog() {
         this.dialogRef.close();
     }
 

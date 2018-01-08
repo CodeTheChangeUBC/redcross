@@ -1,4 +1,5 @@
-import {Component} from "@angular/core";
+import {Component, Input} from "@angular/core";
+import {Resource} from "../models/Resource";
 
 @Component({
     selector: "resource-card",
@@ -8,6 +9,6 @@ import {Component} from "@angular/core";
 
 export class ResourceComponent {
 
-    constructor() { }
+    @Input() private resource: Resource;
 
 }

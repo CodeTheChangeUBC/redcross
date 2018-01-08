@@ -5,7 +5,7 @@ import {ResourceSharingRoutingModule} from "./ResourceSharingRoutingModule";
 import {ResourceSharingService} from "./services/ResourceSharingService";
 import {ResourceUploadDialog} from "./components/ResourceUploadDialog";
 import {ResourceComponent} from "./components/ResourceComponent";
-import {MatDialogModule, MatFormFieldModule, MatInputModule} from "@angular/material";
+import {MatCardModule, MatDialogModule, MatFormFieldModule, MatInputModule} from "@angular/material";
 
 @NgModule({
     imports: [
@@ -13,7 +13,8 @@ import {MatDialogModule, MatFormFieldModule, MatInputModule} from "@angular/mate
         RedcrossCommonModule,
         MatDialogModule,
         MatInputModule,
-        MatFormFieldModule
+        MatFormFieldModule,
+        MatCardModule
     ],
     declarations: [
         ResourceSharingComponent,
