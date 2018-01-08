@@ -3,21 +3,28 @@ import {RedcrossCommonModule} from "../commonModule/RedcrossCommonModule";
 import {ResourceSharingComponent} from "./components/ResourceSharingComponent";
 import {ResourceSharingRoutingModule} from "./ResourceSharingRoutingModule";
 import {ResourceSharingService} from "./services/ResourceSharingService";
-import {ResourceUploadDialogComponent} from "./components/ResourceUploadDialogComponent";
+import {ResourceUploadDialog} from "./components/ResourceUploadDialog";
 import {ResourceComponent} from "./components/ResourceComponent";
+import {MatDialogModule, MatFormFieldModule, MatInputModule} from "@angular/material";
 
 @NgModule({
     imports: [
         ResourceSharingRoutingModule,
-        RedcrossCommonModule
+        RedcrossCommonModule,
+        MatDialogModule,
+        MatInputModule,
+        MatFormFieldModule
     ],
     declarations: [
         ResourceSharingComponent,
-        ResourceUploadDialogComponent,
+        ResourceUploadDialog,
         ResourceComponent
     ],
     providers: [
         ResourceSharingService
     ],
+    entryComponents: [
+        ResourceUploadDialog
+    ]
 })
 export class ResourceSharingModule {}

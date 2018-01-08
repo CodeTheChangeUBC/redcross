@@ -1,4 +1,6 @@
 import {Component} from "@angular/core";
+import {MatDialog} from "@angular/material";
+import {ResourceUploadDialog} from "./ResourceUploadDialog";
 
 @Component({
     selector: "resource-sharing",
@@ -8,6 +10,12 @@ import {Component} from "@angular/core";
 
 export class ResourceSharingComponent {
 
-    constructor() { }
+    constructor(public dialog: MatDialog) { }
+
+    openDialog() {
+        let uploadDialog = this.dialog.open(ResourceUploadDialog, {
+            width: "60%"
+        });
+    }
 
 }
