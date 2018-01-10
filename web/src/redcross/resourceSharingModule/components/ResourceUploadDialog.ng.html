@@ -1,0 +1,20 @@
+<h2 mat-dialog-title="">Upload a Resource</h2>
+<mat-dialog-content class="dialog-content">
+    <form class="upload-form">
+        <mat-form-field class="title-field">
+            <input matInput class="title-input" placeholder="Title">
+        </mat-form-field>
+        <mat-form-field class="desc-field">
+            <input matInput class="desc-input" placeholder="Description">
+        </mat-form-field>
+        <div class="file-field">
+            <button mat-button class="add-file-button">Add File...</button>
+            <span>&nbsp;File Name</span>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="upload-actions">
+    <span class="spacer"></span>
+    <button mat-button (click)="closeDialog()">Cancel</button>
+    <button mat-button class="upload-button">Upload</button>
+</mat-dialog-actions>
